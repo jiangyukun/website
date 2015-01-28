@@ -1,0 +1,65 @@
+
+*, *:before, *:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 100%;
+}
+
+span {
+    white-space: nowrap;
+}
+
+.container {
+    width: 80%;
+    margin: 3rem auto;
+}
+
+.center {
+    display: block;
+    width: 400px;
+    margin: 50px auto;
+    padding: 50px;
+    border: 1px solid #aaa;
+    border-radius: 3px;
+}
+
+.input_line {
+    margin: 1rem 0;
+}
+
+textarea {
+}
+
+.warning {
+    color: red;
+}
+
+.user_info {
+    float: right;
+}
+
+.info {
+    color: red;
+}
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+    display: none !important;
+}
+
+ng\:form {
+    display: block;
+}
+
+.ng-animate-start {
+    clip: rect(0, auto, auto, 0);
+    -ms-zoom: 1.0001;
+}
+
+.ng-animate-active {
+    clip: rect(-1px, auto, auto, 0);
+    -ms-zoom: 1;
+}
