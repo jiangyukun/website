@@ -16,10 +16,10 @@
             <mvc:exclude-mapping path="/user/**"/>
             <ref bean="authInterceptor"/>
         </mvc:interceptor>
-        <mvc:interceptor>
+        <!--<mvc:interceptor>
             <mvc:mapping path="/user/userLogin"/>
             <ref bean="loginInterceptor"/>
-        </mvc:interceptor>
+        </mvc:interceptor>-->
     </mvc:interceptors>
     <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
         <property name="messageConverters">
@@ -33,7 +33,7 @@
             </bean>
         </property>
     </bean>
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="viewResolver" class="me.jiangyu.website.web.tiles.Tiles3ViewResolver">
         <property name="prefix" value="/WEB-INF/jsp"/>
         <property name="suffix" value=".jsp"/>
     </bean>

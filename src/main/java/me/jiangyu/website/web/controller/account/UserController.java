@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 /**
@@ -31,14 +32,14 @@ public class UserController {
         return "/user/login";
     }
 
-    @RequestMapping(value = "/userLogin", method = RequestMethod.POST)
-    public String userLogin(String mobile, String password, Model model) {
+    @RequestMapping(value = "/userLogin", method = RequestMethod.POST, produces = {"application/text;charset=UTF-8"})
+    @ResponseBody
+    public String userLogin(HttpServletRequest request, String mobile, String password) {
         if (userService.loginByMobile(mobile, password)) {
-            model.addAttribute(AccountUtils.ID_STRING, mobile);
-            return "redirect:/index";
+            request.getSession().setAttribute(AccountUtils.ID_STRING, mobile);
+            return "1";
         }
-        model.addAttribute("info", "登录失败");
-        return "redirect:/user/login";
+        return "0";
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.GET)
@@ -49,7 +50,6 @@ public class UserController {
     @RequestMapping(value = "/checkMobile", produces = {"application/text;charset=UTF-8"})
     @ResponseBody
     public String checkMobile(String mobile) {
-        System.out.println(mobile);
         User user = userService.findUserByMobile(mobile);
         return user != null ? "ok" : "手机号不存在";
     }

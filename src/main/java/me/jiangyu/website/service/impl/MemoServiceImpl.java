@@ -3,10 +3,9 @@ package me.jiangyu.website.service.impl;
 import me.jiangyu.website.dao.MemoRepository;
 import me.jiangyu.website.domain.Memo;
 import me.jiangyu.website.service.MemoService;
+import me.jiangyu.website.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.Date;
 
 /**
  * Created by jiangyukun on 2014/11/23.
@@ -18,7 +17,7 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void saveMemo(Memo memo) {
-        memo.setPostData(new Date());
+        memo.setPostData(DateUtil.getCurrentDateTimeString());
         memoRepository.save(memo);
     }
 

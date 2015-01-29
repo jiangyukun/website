@@ -20,11 +20,11 @@ span {
 
 .center {
     display: block;
-    width: 400px;
-    margin: 50px auto;
-    padding: 50px;
+    width: 500px;
+    margin: 75px auto;
+    padding: 75px;
     border: 1px solid #aaa;
-    border-radius: 3px;
+    border-radius: 5px;
 }
 
 .input_line {
@@ -46,20 +46,39 @@ textarea {
     color: red;
 }
 
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak, .ng-hide {
+/* solve angular twinkle */
+[ng-cloak], .ng-cloak {
     display: none !important;
 }
 
-ng\:form {
-    display: block;
+.table-row {
+    display: table-row;
+    background-color: #e7dbcd;
 }
 
-.ng-animate-start {
-    clip: rect(0, auto, auto, 0);
-    -ms-zoom: 1.0001;
+.header, .menu, .body {
+    margin: 10px auto;
+    width: 80%;
 }
 
-.ng-animate-active {
-    clip: rect(-1px, auto, auto, 0);
-    -ms-zoom: 1;
+.header {
+    background-color: #ccc;
+    height: 30px;
+}
+
+.menu {
+    background-color: #e5e5e5;
+    height: 30px;
+}
+
+.body {
+    border: 1px solid #ddd;
+    position: relative;
+}
+
+.copyright {
+    margin: 50px auto 10px auto;
+    width: 200px;
+    text-align: center;
+    font-size: 12px;
 }

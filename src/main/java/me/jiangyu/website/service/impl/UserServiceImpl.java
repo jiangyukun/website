@@ -3,6 +3,7 @@ package me.jiangyu.website.service.impl;
 import me.jiangyu.website.dao.UserRepository;
 import me.jiangyu.website.domain.User;
 import me.jiangyu.website.service.UserService;
+import me.jiangyu.website.util.DateUtil;
 import me.jiangyu.website.util.MD5Utils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,8 +22,8 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void saveUser(User user) {
-        user.setRegistrationDate(new Date());
-        user.setPassword(MD5Utils.md5(user.getPassword()));
+        user.setRegistrationDate(DateUtil.getCurrentDateTimeString());
+        user.setPassword(MD5Utils.md5(user.getPassword(), MD5Utils.Type.LOWER));
         userRepository.save(user);
     }
 

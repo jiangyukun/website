@@ -1,5 +1,6 @@
 package me.jiangyu.website.domain;
 
+import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 
 import javax.persistence.*;
@@ -18,7 +19,7 @@ public class User extends IdEntity {
     private String email;
     private String mobile;
     private String introduce;
-    private Date registrationDate;
+    private String registrationDate;
     private int loginTimes;
     private boolean isUsed;
     private boolean isActivity;
@@ -50,6 +51,7 @@ public class User extends IdEntity {
         this.password = password;
     }
 
+    @Email
     @Column(unique = true, nullable = false, length = 30)
     public String getEmail() {
         return email;
@@ -77,12 +79,11 @@ public class User extends IdEntity {
         this.introduce = introduce;
     }
 
-    @Temporal(TemporalType.DATE)
-    public Date getRegistrationDate() {
+    public String getRegistrationDate() {
         return registrationDate;
     }
 
-    public void setRegistrationDate(Date registrationDate) {
+    public void setRegistrationDate(String registrationDate) {
         this.registrationDate = registrationDate;
     }
 

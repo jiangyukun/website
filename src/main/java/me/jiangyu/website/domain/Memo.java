@@ -1,5 +1,7 @@
 package me.jiangyu.website.domain;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import java.util.Date;
@@ -13,7 +15,7 @@ public class Memo extends IdEntity {
     private String title;
     private String content;
     private User user;
-    private Date postData;
+    private String postData;
 
     @NotNull
     public String getTitle() {
@@ -43,12 +45,11 @@ public class Memo extends IdEntity {
         this.user = user;
     }
 
-    @Temporal(TemporalType.DATE)
-    public Date getPostData() {
+    public String getPostData() {
         return postData;
     }
 
-    public void setPostData(Date postData) {
+    public void setPostData(String postData) {
         this.postData = postData;
     }
 

@@ -3,7 +3,7 @@
  */
 
 angular.module('login', [])
-    .controller('loginController', function ($scope, $http) {
+    .controller('loginController', function ($scope, $http, $window) {
         $scope.message = '';
         $scope.enable = false;
         $scope.btnState = function btnState() {
@@ -20,6 +20,23 @@ angular.module('login', [])
                 }
             }).success(function (data) {
                 $scope.message = data;
+            });
+        };
+        $scope.submit = function () {
+            $http({
+                url: '/user/userLogin',
+                method: 'POST',
+                params: {
+                    mobile: $scope.mobile,
+                    password: hex_md5($scope.password)
+                }
+            }).success(function (text) {
+                if (text === '1') {
+                    $window.location.href = '/index';
+                } else {
+                    $scope.password = '';
+                    $scope.loginResult = '登录失败';
+                }
             });
         };
     });
