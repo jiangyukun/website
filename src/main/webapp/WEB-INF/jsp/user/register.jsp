@@ -7,17 +7,30 @@
 <html>
 <head>
     <title>注册</title>
-    <link href="../static/css/app.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 <div class="center">
-    <div>注册</div>
-    <form action="addUser" method="post">
-        <div class="input_line"><span>用户名</span><input type="text" name="username"/></div>
-        <div class="input_line"><span>密码</span><input type="password" name="password"/></div>
-        <div class="input_line"><span>电子邮件</span><input type="email" name="email"/></div>
-        <div class="input_line"><span>手机号</span><input type="text" name="mobile"/></div>
-        <div><input type="submit" value="提交"/></div>
+    <h2>注册</h2>
+    <form action="/user/addUser" method="post">
+        <div class="input_line">
+            <label for="username">用户名</label>
+            <input id="username" type="text" name="username"/>
+        </div>
+        <div class="input_line">
+            <label for="password">密码</label>
+            <input id='password' type="password" name="password"/>
+        </div>
+        <div class="input_line">
+            <label for="email">电子邮件</label>
+            <input id="email" type="email" name="email"/>
+        </div>
+        <div class="input_line">
+            <label for="mobile">手机号</label>
+            <input id="mobile" type="text" name="mobile"/>
+        </div>
+        <div>
+            <input type="submit" value="提交"/>
+        </div>
     </form>
 </div>
 </body>

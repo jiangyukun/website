@@ -9,6 +9,9 @@ angular.module('login', [])
         $scope.btnState = function btnState() {
             return $scope.message != 'ok';
         };
+        $scope.loginInfo = function () {
+            return !$scope.loginResult;
+        };
         $scope.blur = function () {
             if (!$scope.mobile) {
                 $scope.message = '输入手机号';

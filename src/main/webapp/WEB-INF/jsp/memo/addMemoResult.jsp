@@ -9,7 +9,7 @@
 </head>
 <body>
 <h1>添加成功</h1>
-<a href="addMemo">继续添加</a>
-<a href="allMemo">查看所有</a>
+<a href="/memo/addMemo">继续添加</a>
+<a href="/memo/allMemo">查看所有</a>
 </body>
 </html>

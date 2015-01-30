@@ -44,8 +44,7 @@ public class MemoController {
 
     @RequestMapping(value = "/allMemo", method = RequestMethod.GET)
     public String addMemo(@ModelAttribute(AccountUtils.ID_STRING) String mobile, Model model) {
-        User user = userService.findUserByMobile(mobile);
-        model.addAttribute("memos", user.getMemos());
+        model.addAttribute("memos", memoService.findMemosByMobile(mobile));
         return "/memo/allMemo";
     }
 
@@ -59,7 +58,6 @@ public class MemoController {
     @ResponseBody
     public MemoDto getMemoContent(String memoId) {
         Memo memo = memoService.findMemoById(memoId);
-        MemoDto memoDto = new MemoDto(memo.getUuid(), memo.getTitle(), memo.getContent(), memo.getPostData().toString());
-        return memoDto;
+        return new MemoDto(memo.getId(), memo.getTitle(), memo.getContent(), memo.getPostDate());
     }
 }

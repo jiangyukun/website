@@ -1,6 +1,7 @@
 package me.jiangyu.website.web.tiles;
 
 import org.apache.tiles.Attribute;
+import org.apache.tiles.AttributeContext;
 import org.apache.tiles.TilesContainer;
 import org.apache.tiles.access.TilesAccess;
 import org.apache.tiles.request.ApplicationContext;
@@ -27,7 +28,12 @@ public class Tiles3View extends AbstractUrlBasedView {
         ApplicationContext applicationContext = ServletUtil.getApplicationContext(getServletContext());
         Request request = new ServletRequest(applicationContext, req, res);
         TilesContainer container = TilesAccess.getContainer(applicationContext);
-        container.getAttributeContext(request).putAttribute("body", new Attribute(this.getUrl()));
+        AttributeContext tile3AttributeContext = container.getAttributeContext(request);
+        tile3AttributeContext.putAttribute("body", new Attribute(this.getUrl()));
+        for (String key: model.keySet()) {
+            Object value = model.get(key);
+            req.setAttribute(key, value);
+        }
         container.render("tiles3", request);
     }
 }

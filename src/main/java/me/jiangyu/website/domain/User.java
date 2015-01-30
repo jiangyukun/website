@@ -25,6 +25,11 @@ public class User extends IdEntity {
     private boolean isActivity;
     private List<Memo> memos;
 
+    private List<Journal> journals;
+
+    /* add */
+    private UserSetting userSetting;
+
     @Column(unique = true, nullable = false, length = 20)
     public String getUsername() {
         return username;
@@ -43,6 +48,7 @@ public class User extends IdEntity {
         this.nickname = nickname;
     }
 
+    @Length(min = 4)
     public String getPassword() {
         return password;
     }
@@ -112,12 +118,32 @@ public class User extends IdEntity {
     }
 
     @OneToMany
-    @JoinColumn(name = "user_uuid")
+    @JoinColumn(name = "user_id")
     public List<Memo> getMemos() {
         return memos;
     }
 
     public void setMemos(List<Memo> memos) {
         this.memos = memos;
+    }
+
+    @OneToMany
+    @JoinColumn(name = "user_id")
+    public List<Journal> getJournals() {
+        return journals;
+    }
+
+    public void setJournals(List<Journal> journals) {
+        this.journals = journals;
+    }
+
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "setting_id")
+    public UserSetting getUserSetting() {
+        return userSetting;
+    }
+
+    public void setUserSetting(UserSetting userSetting) {
+        this.userSetting = userSetting;
     }
 }

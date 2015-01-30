@@ -11,16 +11,16 @@ import javax.persistence.MappedSuperclass;
  */
 @MappedSuperclass
 public class IdEntity {
-    private String uuid;
+    private String id;
 
     @Id
     @GeneratedValue(generator = "uuid")
     @GenericGenerator(name = "uuid", strategy = "org.hibernate.id.UUIDGenerator")
-    public String getUuid() {
-        return uuid;
+    public String getId() {
+        return id;
     }
 
-    public void setUuid(String uuid) {
-        this.uuid = uuid;
+    public void setId(String id) {
+        this.id = id;
     }
 }

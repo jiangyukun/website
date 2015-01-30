@@ -7,6 +7,8 @@ import me.jiangyu.website.util.DateUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by jiangyukun on 2014/11/23.
  */
@@ -17,13 +19,18 @@ public class MemoServiceImpl implements MemoService {
 
     @Override
     public void saveMemo(Memo memo) {
-        memo.setPostData(DateUtil.getCurrentDateTimeString());
+        memo.setPostDate(DateUtil.getCurrentDateTimeString());
         memoRepository.save(memo);
     }
 
     @Override
     public Memo findMemoById(String id) {
         return memoRepository.findOne(id);
+    }
+
+    @Override
+    public List<Memo> findMemosByMobile(String mobile) {
+        return memoRepository.findMemosByMobile(mobile);
     }
 
     @Override

@@ -2,7 +2,8 @@
   User: jiangyukun
   Date: 2015/1/29 16:32
 --%>
-<%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" %>
+
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@ taglib uri="http://tiles.apache.org/tags-tiles" prefix="tiles" %>
 <!DOCTYPE html>
 <html>

@@ -1,6 +1,7 @@
 package me.jiangyu.website.web.controller.account;
 
 import me.jiangyu.website.domain.User;
+import me.jiangyu.website.domain.UserSetting;
 import me.jiangyu.website.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,6 +24,8 @@ public class UserController {
 
     @RequestMapping(value = "/addUser", method = RequestMethod.POST)
     public String addUser(@Valid User user) {
+        UserSetting userSetting = new UserSetting();
+        user.setUserSetting(userSetting);
         userService.saveUser(user);
         return "redirect:/user/login";
     }

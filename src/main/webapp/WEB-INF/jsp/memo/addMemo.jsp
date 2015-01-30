@@ -12,7 +12,7 @@
 <div class="center">
     <h1>添加备忘</h1>
 
-    <form method="post" action="addMemo">
+    <form method="post" action="/memo/addMemo">
         <div class="input_line">标题：<input name="title" type="text"/></div>
         <div class="input_line">内容：<textarea name="content" rows="10" cols="40"></textarea></div>
         <input type="submit"/>
