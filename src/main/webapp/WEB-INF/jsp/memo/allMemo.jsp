@@ -11,7 +11,7 @@
 <body>
 <h1>所有备忘</h1>
 <c:forEach var="memo" items="${memos}">
-    <div><a href="memoDetail?memoId=${memo.uuid}">${memo.title}</a> 日期：${memo.postDate}</div>
+    <div><a href="memoDetail?memoId=${memo.id}">${memo.title}</a> 日期：${memo.postDate}</div>
 </c:forEach>
 </body>
 </html>
